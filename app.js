@@ -29,9 +29,11 @@ app.use('/covid', require('./routes/covid'));
 
 app.listen(PORT);
 
+//Every 5 hours
 var csvJob = new CronJob('0 */5 * * *', function() {
   updateCSVData();
 });
+//Every 5 hours and 30min
 var dataJob = new CronJob('30 */5 * * *', function() {
   updateData();
 });
